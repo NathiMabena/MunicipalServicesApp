@@ -52,6 +52,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Location = new Point(42, 111);
             label1.Name = "label1";
@@ -61,6 +62,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Location = new Point(42, 177);
             label2.Name = "label2";
@@ -70,6 +72,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Location = new Point(42, 256);
             label3.Name = "label3";
@@ -79,6 +82,7 @@
             // 
             // btnAttachMedia
             // 
+            btnAttachMedia.Anchor = AnchorStyles.None;
             btnAttachMedia.BackColor = Color.White;
             btnAttachMedia.FlatAppearance.BorderColor = Color.SteelBlue;
             btnAttachMedia.FlatStyle = FlatStyle.Flat;
@@ -92,6 +96,7 @@
             // 
             // lblFilePath
             // 
+            lblFilePath.Anchor = AnchorStyles.None;
             lblFilePath.AutoSize = true;
             lblFilePath.Location = new Point(31, 449);
             lblFilePath.Name = "lblFilePath";
@@ -105,6 +110,7 @@
             // 
             // progressBarStatus
             // 
+            progressBarStatus.Anchor = AnchorStyles.None;
             progressBarStatus.Location = new Point(31, 498);
             progressBarStatus.Name = "progressBarStatus";
             progressBarStatus.Size = new Size(163, 23);
@@ -112,6 +118,7 @@
             // 
             // lblFeedback
             // 
+            lblFeedback.Anchor = AnchorStyles.None;
             lblFeedback.AutoSize = true;
             lblFeedback.Location = new Point(31, 532);
             lblFeedback.Name = "lblFeedback";
@@ -121,6 +128,7 @@
             // 
             // btnSubmitReport
             // 
+            btnSubmitReport.Anchor = AnchorStyles.None;
             btnSubmitReport.BackColor = Color.SteelBlue;
             btnSubmitReport.FlatAppearance.BorderSize = 0;
             btnSubmitReport.FlatStyle = FlatStyle.Flat;
@@ -135,6 +143,7 @@
             // 
             // btnBack
             // 
+            btnBack.Anchor = AnchorStyles.None;
             btnBack.BackColor = Color.SteelBlue;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatStyle = FlatStyle.Flat;
@@ -149,18 +158,20 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 22F);
-            label4.ForeColor = Color.SteelBlue;
+            label4.Font = new Font("Segoe UI Semibold", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.MidnightBlue;
             label4.Location = new Point(195, 13);
             label4.Name = "label4";
             label4.Padding = new Padding(24, 24, 0, 0);
-            label4.Size = new Size(225, 65);
+            label4.Size = new Size(216, 64);
             label4.TabIndex = 12;
             label4.Text = "Report Issues";
             // 
             // panelLocation
             // 
+            panelLocation.Anchor = AnchorStyles.None;
             panelLocation.BackColor = Color.White;
             panelLocation.Controls.Add(txtLocation);
             panelLocation.Location = new Point(149, 111);
@@ -171,8 +182,8 @@
             // 
             // txtLocation
             // 
+            txtLocation.Anchor = AnchorStyles.None;
             txtLocation.BorderStyle = BorderStyle.None;
-            txtLocation.Dock = DockStyle.Fill;
             txtLocation.Location = new Point(8, 8);
             txtLocation.Name = "txtLocation";
             txtLocation.Size = new Size(328, 16);
@@ -180,6 +191,7 @@
             // 
             // panelCategory
             // 
+            panelCategory.Anchor = AnchorStyles.None;
             panelCategory.Controls.Add(cmbCategory);
             panelCategory.Location = new Point(149, 177);
             panelCategory.Name = "panelCategory";
@@ -189,7 +201,7 @@
             // 
             // cmbCategory
             // 
-            cmbCategory.Dock = DockStyle.Fill;
+            cmbCategory.Anchor = AnchorStyles.None;
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
             cmbCategory.Items.AddRange(new object[] { "Roads", "Sanitation", "Water and Utilities", "Electricity" });
@@ -200,6 +212,7 @@
             // 
             // panelDescription
             // 
+            panelDescription.Anchor = AnchorStyles.None;
             panelDescription.Controls.Add(rtbDescription);
             panelDescription.Location = new Point(151, 232);
             panelDescription.Name = "panelDescription";
@@ -209,7 +222,7 @@
             // 
             // rtbDescription
             // 
-            rtbDescription.Dock = DockStyle.Fill;
+            rtbDescription.Anchor = AnchorStyles.None;
             rtbDescription.Location = new Point(8, 8);
             rtbDescription.Name = "rtbDescription";
             rtbDescription.Size = new Size(330, 122);
@@ -220,7 +233,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(684, 599);
             Controls.Add(panelDescription);
             Controls.Add(panelCategory);

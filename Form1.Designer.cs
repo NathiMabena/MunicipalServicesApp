@@ -38,10 +38,10 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Left;
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 22F);
-            label1.ForeColor = Color.SteelBlue;
+            label1.ForeColor = Color.MidnightBlue;
             label1.Location = new Point(193, 22);
             label1.Name = "label1";
             label1.Padding = new Padding(24, 24, 0, 0);
@@ -51,10 +51,11 @@
             // 
             // btnReportIssues
             // 
+            btnReportIssues.Anchor = AnchorStyles.None;
             btnReportIssues.BackColor = Color.SteelBlue;
             btnReportIssues.FlatStyle = FlatStyle.Flat;
             btnReportIssues.ForeColor = Color.White;
-            btnReportIssues.Location = new Point(301, 132);
+            btnReportIssues.Location = new Point(121, 185);
             btnReportIssues.Name = "btnReportIssues";
             btnReportIssues.Size = new Size(158, 66);
             btnReportIssues.TabIndex = 1;
@@ -64,19 +65,23 @@
             // 
             // btnLocalEvents
             // 
+            btnLocalEvents.Anchor = AnchorStyles.None;
+            btnLocalEvents.BackColor = Color.SteelBlue;
             btnLocalEvents.FlatStyle = FlatStyle.Flat;
-            btnLocalEvents.Location = new Point(301, 221);
+            btnLocalEvents.ForeColor = Color.White;
+            btnLocalEvents.Location = new Point(318, 185);
             btnLocalEvents.Name = "btnLocalEvents";
             btnLocalEvents.Size = new Size(158, 66);
             btnLocalEvents.TabIndex = 2;
             btnLocalEvents.Text = "Local Events and Announcements";
-            btnLocalEvents.UseVisualStyleBackColor = true;
+            btnLocalEvents.UseVisualStyleBackColor = false;
             btnLocalEvents.Click += btnLocalEvents_Click;
             // 
             // btnServiceStatus
             // 
+            btnServiceStatus.Anchor = AnchorStyles.None;
             btnServiceStatus.FlatStyle = FlatStyle.Flat;
-            btnServiceStatus.Location = new Point(301, 310);
+            btnServiceStatus.Location = new Point(514, 185);
             btnServiceStatus.Name = "btnServiceStatus";
             btnServiceStatus.Size = new Size(158, 66);
             btnServiceStatus.TabIndex = 3;
@@ -86,23 +91,25 @@
             // 
             // btnAdminView
             // 
+            btnAdminView.Anchor = AnchorStyles.None;
             btnAdminView.BackColor = Color.SteelBlue;
             btnAdminView.FlatAppearance.BorderColor = Color.Lavender;
             btnAdminView.FlatStyle = FlatStyle.Flat;
             btnAdminView.ForeColor = Color.White;
-            btnAdminView.Location = new Point(12, 397);
+            btnAdminView.Location = new Point(334, 295);
             btnAdminView.Name = "btnAdminView";
-            btnAdminView.Size = new Size(102, 41);
+            btnAdminView.Size = new Size(120, 49);
             btnAdminView.TabIndex = 4;
-            btnAdminView.Text = "View Data (Admin)";
+            btnAdminView.Text = "View Issues Data (Admin)";
             btnAdminView.UseVisualStyleBackColor = false;
             btnAdminView.Click += btnAdminView_Click;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10F, FontStyle.Italic);
-            label2.ForeColor = SystemColors.GrayText;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(168, 97);
             label2.Name = "label2";
             label2.Size = new Size(462, 19);
@@ -113,7 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(244, 246, 248);
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(label2);
             Controls.Add(btnAdminView);
