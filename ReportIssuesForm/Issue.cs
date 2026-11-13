@@ -15,6 +15,8 @@ namespace ReportIssuesForm
 
         public string AttachedFilePath { get; set; }
 
+        public DateTime SubmittedDate { get; set; } = DateTime.Now;
+
     }
 
 }
