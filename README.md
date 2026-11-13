@@ -1,47 +1,41 @@
-# Municipal Services Portal
+# Municipal Services Portal (Parts 1, 2 & 3 Complete)
 
-A modern desktop application built in C# .NET Windows Forms to help citizens easily report local municipal issues and seamlessly engage with local events and announcements. 
+A C# .NET Windows Forms desktop application designed to streamline municipal service delivery in South Africa. Citizens can report local infrastructure issues, browse and receive recommendations for community events, and track service request statuses using self-balancing AVL trees, binary min-heaps, and weighted graphs.
 
-## Features Highlight
+## Features & Data Structures
 
-- **Interactive Reporting:** Citizens can report issues with a location, category dropdown, and detailed description.
-- **Local Events & Announcements:** Users can search and filter upcoming municipal events by specific categories or chronological dates.
-- **Smart Recommendation Engine:** A proactive algorithm that analyzes user behavior patterns to predict and display highly personalized event suggestions based on search frequency.
-- **Advanced Data Structures:** 
-  - `List<T>`: Structurally manages and stores reported issues in memory.
-  - `HashSet<T>`: Automatically filters out duplicate event categories to provide a clean, unique UI search dropdown.
-  - `SortedDictionary<TKey, TValue>`: Automatically sorts events chronologically upon insertion for optimized retrieval.
-  - `Queue<T>`: Acts as a rolling memory buffer to track the user's 5 most recent searches for the recommendation engine.
-- **Gamified User Feedback:** A real-time dynamic progress bar tracks form completion, changing from orange to green to indicate when the user is cleared to submit.
-- **Media Attachments:** Optional file attachment integration using native Windows dialogue components.
-- **Defensive Programming:** Robust input validation across all forms to intercept empty queries and prevent unhandled exceptions gracefully.
-- **Modern UI/UX:** Flat geometry design system featuring a cohesive SteelBlue theme, dynamic hover animations, and an intuitive visual hierarchy for inactive/pending features.
+### Module 1: Report Issues (Part 1)
+- **Interactive Issue Logging:** Citizens log infrastructure faults with a location, locked category dropdown, detailed description, exact submission timestamp (`SubmittedDate`), and optional Windows `OpenFileDialog` file attachments.
+- **Real-Time Progress Bar:** Dynamically changes colour from grey to orange to green as mandatory fields are completed.
+- **Cross-Module Integration (`List<Issue>`):** Stores reported issues in memory and feeds them live into the Part 3 Service Request Status dashboard.
+
+### Module 2: Local Events & Announcements (Part 2)
+- **Chronological Event Storage (`SortedDictionary<DateTime, List<LocalEvent>>`):** Automatically keeps municipal events sorted by date while allowing multiple events on the same day.
+- **Unique Category Dropdown (`HashSet<string>`):** Filters out duplicate categories so the search dropdown only shows unique options.
+- **Search History (`Queue<string>`) & Recommendations:** Tracks the user's 5 most recent searches and suggests matching upcoming events.
+
+### Module 3: Service Request Status (Part 3)
+- **Self-Balancing AVL Tree (`ServiceRequestAvlTree`):** Organises service requests by Unique ID (`REQ-1001`, `REQ-1002`, etc.) using automatic left and right rotations for fast ID lookups and sorted In-Order display.
+- **Priority Queue (`ServiceRequestMinHeap`) & Keyword Classifier:** Scans incoming citizen reports for urgent keywords (such as `"leakage"`, `"power outage"`, `"broken pipeline"`, `"burst"`, `"flood"`, or `"sinkhole"`) to assign urgency (`1 - Critical` to `4 - Low`) and uses a binary Min-Heap to bring critical emergencies to the top.
+- **Smart Infrastructure Dependency Graph (`ServiceRequestGraph`):** Models related municipal faults as connected nodes with kilometre road distances, automatically linking new citizen reports to matching Pretoria departmental hubs.
+- **Breadth-First Search (BFS) Traversal:** Finds and lists all connected faults in the same local infrastructure cluster.
+- **Minimum Spanning Tree (Prim's Algorithm):** Calculates the shortest maintenance dispatch route to visit all connected faults without unnecessary loops.
+- **Live Status Progression:** Allows users to select any request and advance its status from `Pending` -> `In Progress` -> `Resolved`.
 
 ## Prerequisites
+- **IDE:** Visual Studio 2022 (with the .NET Desktop Development workload installed)
+- **Framework:** .NET 8.0 SDK (or the Windows Forms .NET target configured in the solution)
+- **OS:** Windows 10 or Windows 11
 
-- Visual Studio 2022
-- .NET 8.0 SDK (or the version targeted in your build)
+## How to Build and Run
+1. Clone this repository to your computer:
+   `git clone https://github.com/NathiMabena/MunicipalServicesApp.git`
+2. Open **`MunicipalServicesApp.sln`** in **Visual Studio 2022**.
+3. Ensure **`MunicipalServicesApp`** is set as the **Startup Project** in Solution Explorer.
+4. Press **`Ctrl + Shift + B`** (or click **Build > Build Solution**) to compile the project.
+5. Press **`F5`** (or click **Start**) to launch the application.
 
-## Compilation & Execution
-
-1. Clone this repository to your local machine.
-2. Open the `MunicipalServicesApp.sln` solution file in Visual Studio.
-3. Ensure the startup project is set to `MunicipalServicesApp`.
-4. Press **F5** or click the **Start** button at the top to build and run the application.
-
-## How to Use
-
-### Module 1: Report Issues
-1. Launch the application to view the Main Menu.
-2. Click **Report Issues** to open the reporting dashboard.
-3. Fill in the Location, Category, and Description. Watch the progress bar dynamically update.
-4. (Optional) Click **Media Attachment** to link a local file to your report.
-5. Once the progress bar turns green (75% or 100%), click **Submit Report**.
-6. **Assessor Note:** To verify the `List<T>` data structure is actively storing the `Issue` objects in memory, return to the Main Menu and click the **View Data (Admin)** button in the bottom left corner to view the active DataGridView.
-
-### Module 2: Local Events and Announcements
-1. From the Main Menu, click **Local Events and Announcements**.
-2. Use the **Search By Category** dropdown (populated via `HashSet`) or the **Search By Date** picker to filter the events.
-3. Click **Search** to view the filtered chronological results (handled via `SortedDictionary`).
-4. Notice the **Recommended For You** section at the bottom left dynamically update based on your search history (powered by a `Queue` and a custom LINQ algorithm).
-5. Click **Clear** to reset the data grid and empty the search filters.
+## User Guide
+1. **Report Issues:** Click **Report Issues** on the Main Menu, fill in the Location, Category, and Description, and click **Submit Report**.
+2. **Local Events and Announcements:** Click **Local Events and Announcements**, filter by Category or Date, and view personalised suggestions in the **Recommended For You** panel.
+3. **Service Request Status:** Click **Service Request Status** to view all requests sorted by ID (`AVL Tree`) or urgency (`Min-Heap`), search by Unique ID (e.g., `REQ-1007` or `1007`), update ticket statuses, and click any row to inspect its **BFS Graph Traversal** and **Minimum Spanning Tree (MST)** dispatch route.
